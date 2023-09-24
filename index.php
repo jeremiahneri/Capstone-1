@@ -176,6 +176,8 @@ session_start();
                                     aria-label='Slide 2'></button>
                                 <button type='button' data-bs-target='#$results[Model]' data-bs-slide-to='2'
                                     aria-label='Slide 3'></button>
+                                    <button type='button' data-bs-target='#$results[Model]' data-bs-slide-to='3'
+                                    aria-label='Slide 4'></button>
                             </div>
                             <div class='carousel-inner'>
                                 <div class='carousel-item active'>

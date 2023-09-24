@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2023 at 07:11 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Sep 24, 2023 at 04:31 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `quickrentz`
+-- Database: `quickrentz_db`
 --
 
 -- --------------------------------------------------------
@@ -84,10 +84,22 @@ CREATE TABLE `reservation` (
   `ReservationID` int(11) NOT NULL,
   `UserID` int(11) NOT NULL,
   `VehicleID` int(11) NOT NULL,
-  `Pickup` datetime NOT NULL,
-  `Return` datetime NOT NULL,
+  `Pickup` date NOT NULL,
+  `Return` date NOT NULL,
+  `Message` text NOT NULL,
   `Status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`ReservationID`, `UserID`, `VehicleID`, `Pickup`, `Return`, `Message`, `Status`) VALUES
+(1, 4, 44, '2023-09-26', '2023-09-28', 'yes zirrr', 'Not yet Confirmed'),
+(2, 4, 49, '2023-09-30', '2023-10-05', 'pa book po', 'Not yet Confirmed'),
+(3, 15, 49, '2023-09-26', '2023-09-28', 'bobooo', 'Not yet Confirmed'),
+(4, 15, 44, '2023-09-29', '2023-09-16', 'yahoooo', 'Not yet Confirmed'),
+(5, 4, 49, '2023-09-27', '2023-09-28', '', 'Not yet Confirmed');
 
 -- --------------------------------------------------------
 
@@ -154,10 +166,9 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`VehicleID`, `BrandID`, `Model`, `Year`, `Type`, `FuelType`, `Transmision`, `Mileage`, `SeatingCapacity`, `Rate`, `Image1`, `Image2`, `Image3`, `Image4`) VALUES
-(44, 2, 'Wigo', '2021', 'Sedan', 'Petrol', 'Automatic', '19990', 4, 2500, '1695399225_ct2qsHwhCY.png', '1695399225_ATis0ZQONh.png', '1695399225_AjV6MEiPZG.png', '1695399225_YyszORlcev.'),
-(45, 8, 'Civic', '2020', 'Sedan', 'Petrol', 'Automatic', '200000', 4, 3000, '1695399259_lBMXsWydHv.png', '1695399259_ID7HCtN1gh.png', '1695399259_Ufa9dmGXS0.png', '1695399259_yOWt9SJHXM.'),
-(46, 6, 'Ranger', '2019', 'Pick-up', 'Petrol', 'Manual', '199998', 4, 2000, '1695399295_RIP8QayY26.png', '1695399295_364NzGcQWd.png', '1695399295_32zxJR9EhI.png', '1695399295_ATL17Jlxg8.'),
-(49, 6, 'Everest', '2023', 'SUV', 'Diesel', 'Automatic', '10000', 8, 120, '1695531518_me0KEVTbQi.png', '1695531518_IU6bW4puL5.jpg', '1695531518_0upIMbqA6O.jpg', '1695531518_gSvbeDaz2q.');
+(44, 2, 'Wigos', 2021, 'Sedan', 'Petrol', 'Automatic', '19990', 4, 2500, '1695399225_ct2qsHwhCY.png', '1695399225_ATis0ZQONh.png', '1695399225_AjV6MEiPZG.png', '1695399225_YyszORlcev.'),
+(46, 6, 'Ranger', 2019, 'Pick-up', 'Petrol', 'Manual', '199998', 4, 2000, '1695399295_RIP8QayY26.png', '1695399295_364NzGcQWd.png', '1695399295_32zxJR9EhI.png', '1695399295_ATL17Jlxg8.'),
+(49, 6, 'Everest', 2023, 'SUV', 'Diesel', 'Automatic', '10000', 8, 120, '1695531518_me0KEVTbQi.png', '1695531518_IU6bW4puL5.jpg', '1695531518_0upIMbqA6O.jpg', '1695531518_gSvbeDaz2q.');
 
 --
 -- Indexes for dumped tables
@@ -213,7 +224,7 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`

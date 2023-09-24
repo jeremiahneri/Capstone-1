@@ -108,13 +108,13 @@ if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
                     $newvehicleRate = $_POST['rate'];
                     $newvehicleSeatingCap = $_POST['seat'];
 
-                    $updateVehicle = "UPDATE `vehicle` SET `Brand`='$newvehicleBrand',`Model`='$newvehicleModel',`Year`='$newvehicleYear',`Type`='$newvehicleType',`FuelType`='$newvehicleFuelType',`Transmision`='$newvehicleTransmision',`Mileage`='$newvehicleMileage',`SeatingCapacity`='$newvehicleSeatingCap',`Rate`='$newvehicleRate' WHERE `VehicleID` = '$id'";
-
-                    if (mysqli_query($conn, $updateVehicle)) {
-                        header("location: vehicles.php");
-                    } else {
-                        echo "Error updating record: " . mysqli_error($conn);
-                    }
+                    $updateVehicle = "UPDATE `vehicle` SET `BrandID`='$newvehicleBrand',`Model`='$newvehicleModel',`Year`='$newvehicleYear',`Type`='$newvehicleType',`FuelType`='$newvehicleFuelType',`Transmision`='$newvehicleTransmision',`Mileage`='$newvehicleMileage',`SeatingCapacity`='$newvehicleSeatingCap',`Rate`='$newvehicleRate' WHERE `VehicleID` = '$id'";
+                    mysqli_query($conn, $updateVehicle);
+                    // if (mysqli_query($conn, $updateVehicle)) {
+                    //     header("location: vehicles.php");
+                    // } else {
+                    //     echo "Error updating record: " . mysqli_error($conn);
+                    // }
                 }
             }
             ?>
@@ -136,7 +136,7 @@ if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
                                         $initiateselectBrand = mysqli_query($conn,$selectBrand);
                                         $result = mysqli_fetch_assoc($initiateselectBrand);
                                     ?>
-                                    <option value=""><?php echo htmlentities($result['brandName']) ?></option>
+                                    <option value="<?php echo htmlentities($results['BrandID']) ?>" selected><?php echo htmlentities($result['brandName']) ?></option>
                                 </select>
                             </div>
                             <div class="col-md-2">

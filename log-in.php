@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       if ($user_data['Password'] == $password) {
 
         $_SESSION['username'] = $user_data['Username'];
+        $_SESSION['UserID'] = $user_data['UserID'];
         // $_SESSION['profilePhoto'] = $user_data['Photo'];
 
         header("location: main.php");

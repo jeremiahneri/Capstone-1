@@ -1,0 +1,40 @@
+body{
+    background-color: #06010C;
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    .card{
+      background-color:#06010C;
+      border: none;
+    }
+    
+    
+    .quick{
+      /* background-color: red !important; */
+      margin-left: 10rem;
+    }
+    .user{
+      background: none;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 4px;
+    }
+    .navbarMain{
+        background-color: #06010C;
+    }
+    
+    .navbar-toggler{
+        background-color:rgb(255, 255, 255); ;
+    }
+    
+    .navbar-brand{
+        font-size: 30px;
+    }
+    
+    .navbar-nav .nav-link {
+        margin-right: 25px;
+        font-size: 20px;
+        cursor:pointer;
+        
+        
+    }
