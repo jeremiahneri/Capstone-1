@@ -158,12 +158,12 @@ session_start();
     <!-- START SECTION 3 -->
     <div class="container-fluid">
         <div class="title_main">
-            <h2 class="text-left text-light" style="text-align:left;">FEATURED LISTINGS</h2>
+            <h2 class="text-light p-4" style="text-align:left;">FEATURED LISTINGS</h2>
         </div>
         <div class="row">
             <?php
             $selectVehicle = "SELECT vehicle.*, brand.brandName FROM vehicle
-                LEFT JOIN brand ON vehicle.BrandID = brand.BrandID";
+                LEFT JOIN brand ON vehicle.BrandID = brand.BrandID LIMIT 4";
             $initiateSelectVehicle = mysqli_query($conn, $selectVehicle);
             while ($results = mysqli_fetch_assoc($initiateSelectVehicle)) {
                 echo "<div class='col-md-3 mb-4'>

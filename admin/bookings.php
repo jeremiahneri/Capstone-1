@@ -37,8 +37,8 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
                         style="color: #ffffff;"></i></button>
             </div>
             <ul class="list-unstyled px-2 pt-3">
-                <li class="p-3 active"><a href="main.php" class="text-decoration-none fs-4">Dashboard</a></li>
-                <li class="p-3"><a href="#" class="text-decoration-none fs-4">Manage Booking</a></li>
+                <li class="p-3"><a href="main.php" class="text-decoration-none fs-4">Dashboard</a></li>
+                <li class="p-3 active"><a href="booking.php" class="text-decoration-none fs-4">Manage Booking</a></li>
                 <li class="p-3"><a href="users.php" class="text-decoration-none fs-4">Customer Credential</a></li>
                 <li class="p-3"><a href="vehicles.php" class="text-decoration-none fs-4">Manage Vehicle</a></li>
                 <li class="p-3"> <a class="text-decoration-none fs-4" data-bs-toggle="collapse" href="#collapseAdd"
@@ -117,6 +117,13 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
                         INNER JOIN brand ON vehicle.BrandID = brand.BrandID";
                         $initiateReservation = mysqli_query($conn, $sqlReservation);
                         while ($results = mysqli_fetch_assoc($initiateReservation)) {
+                            if($results['Status'] == 'Booking Confirmed'){
+                                $status = "<td class='text-success'>$results[Status]</td>";
+                            }elseif($results['Status'] == 'Booking Cancelled'){
+                                $status = "<td class='text-danger'>$results[Status]</td>";
+                            }else{
+                                $status = "<td class='text-warning'>$results[Status]</td>";
+                            }
                             echo "
                                 <tr>
                                     <th scope='row'>$results[ReservationID]</th>
@@ -125,13 +132,28 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
                                     <td>$results[Pickup]</td>
                                     <td>$results[Return]</td>
                                     <td>$results[Message]</td>
-                                    <td>$results[Status]</td>
-                                    <td><a href=''>Confirm</a> / <a href=''>Cancel</a></td>
+                                    $status
+                                    <td class='d-flex'>
+                                        <form method='GET' action='confirm.php' class='px-2'>
+                                            <input type='hidden' name='ReservationID' value='$results[ReservationID]'>
+                                            <button type='submit' class='btn-delete text-success' style='border:none;background:none;'>Confirm</button>
+                                        </form>
+                                        <form method='GET' action='cancel.php' class='px-2'>
+                                            <input type='hidden' name='ReservationID' value='$results[ReservationID]'>
+                                            <button type='submit' class='btn-delete text-danger' style='border:none;background:none;'>Cancel</button>
+                                        </form>
+                                        <form method='GET' action='deletebooking.php' class='px-2'>
+                                            <input type='hidden' name='ReservationID' value='$results[ReservationID]'>
+                                            <button type='submit' class='btn-delete text-danger' style='border:none;background:none;'>Delete</button>
+                                        </form>
+                                       
+                                    </td>
                                 </tr>";
                         }
 
                         ?>
                     </tbody>
+
                     <tfoot>
                         <tr>
                             <th scope="col">#</th>

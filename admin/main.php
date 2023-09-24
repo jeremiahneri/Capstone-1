@@ -38,7 +38,7 @@ if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
             </div>
             <ul class="list-unstyled px-2 pt-3">
                 <li class="p-3 active"><a href="main.php" class="text-decoration-none fs-4">Dashboard</a></li>
-                <li class="p-3"><a href="#" class="text-decoration-none fs-4">Manage Booking</a></li>
+                <li class="p-3"><a href="bookings.php" class="text-decoration-none fs-4">Manage Booking</a></li>
                 <li class="p-3"><a href="users.php" class="text-decoration-none fs-4">Customer Credential</a></li>
                 <li class="p-3"><a href="vehicles.php" class="text-decoration-none fs-4">Manage Vehicle</a></li>
                 <li class="p-3"> <a class="text-decoration-none fs-4" data-bs-toggle="collapse" href="#collapseAdd"

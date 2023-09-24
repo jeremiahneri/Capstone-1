@@ -82,7 +82,7 @@ if (isset($_SESSION['username'])) {
                             <li class="px-2 mb-3"><a href="" class="text-white text-decoration-none">Manage Account</a>
                             </li>
                             <li class="px-2 mb-3">
-                                <a href="mybooking.php" class="text-white text-decoration-none">My Booking</a>
+                                <a href="mybookings.php" class="text-white text-decoration-none">My Booking</a>
                             </li>
                             <li class="px-2" >
                                 <form method="POST" action="">
@@ -247,7 +247,7 @@ if (isset($_SESSION['username'])) {
                             </div>
                             <div class='grid-item2'>
                                 <h5 class='card-title amountText'>₱$results[Rate] / day</h5>
-                                <form method='GET' action='renting.php'>
+                                <form method='GET' action='booknow.php'>
                                             <input type='hidden' name='VehicleID' value='$results[VehicleID]'>
                                             <button class='btn' style='color: white; background-color: #806393;'>Rent Now</button>
                                 </form>

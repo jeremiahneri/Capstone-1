@@ -1,19 +1,8 @@
 body{
-    background-color: #06010C;
-    font-family: 'Poppins', sans-serif;
-    }
-    
-    .card{
-      background-color:#06010C;
-      border: none;
-    }
-    
-    
-    .quick{
-      /* background-color: red !important; */
-      margin-left: 10rem;
-    }
-    .user{
+  background-color: #06010C;
+  }
+  
+  .user{
       background: none;
       color: #fff;
       border: 1px solid #fff;
@@ -35,6 +24,53 @@ body{
         margin-right: 25px;
         font-size: 20px;
         cursor:pointer;
-        
-        
-    }
+   }
+  .card1{
+      background-color: #06010C;
+     
+  }
+  
+  .card2{
+      background-color: #06010C;
+    
+  }
+  
+  .cardContainer{
+      color: white;
+      background-color: #06010C;
+  
+  }
+  
+  .cardContainer2{
+      color: white;
+      background-color: #06010C;
+  
+  }
+  
+  .btnBook{
+      background-color: #7b59a3;
+      color: white;
+ 
+  }
+  
+  .cardheader {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+  
+  .card-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  
+  .card-detail-item {
+      width: 49%;
+      margin-bottom: 10px;
+  }
+  .btn1{
+    background-color: #7b59a3;
+
+  }
+  
