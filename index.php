@@ -212,7 +212,7 @@ session_start();
     <!-- START SECTION 3 -->
     <div class="container-fluid mt-5">
         <div class="title_main">
-            <h2 class="text-left text-light" style="text-align:left;">FEATURED LISTINGS</h2>
+            <h2 class="text-left text-light" style="text-align:center;">FEATURED LISTINGS</h2>
         </div>
         <div class="row">
             <?php

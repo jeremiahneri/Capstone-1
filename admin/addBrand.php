@@ -117,7 +117,7 @@ function generateUniqueFileName($originalFileName)
                                 <label class="col-form-label">Upload Logo</label>
                             </div>
                             <div class="col-auto">
-                                <input class="py-3" type="file" name="brandLogo" required>
+                                <input class="py-3" type="file" name="brandLogo">
                             </div>
                             <div class="col-auto">
                                 <label for="brandName" class="col-form-label">Brand Name</label>

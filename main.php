@@ -211,7 +211,7 @@ if (isset($_SESSION['username'])) {
     <!-- START SECTION 3 -->
     <div class="container-fluid">
         <div class="title_main">
-            <h2>FEATURED LISTINGS</h2>
+            <h2>CHOOSE YOUR CAR</h2>
         </div>
         <div class="row">
             <?php

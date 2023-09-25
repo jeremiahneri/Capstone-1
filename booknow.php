@@ -99,9 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <?php echo $username; ?>
                         </button>
                         <ul class="mt-2 dropdown-menu bg-dark">
-                            <li class="px-2 mb-3"><a href="" class="text-white text-decoration-none">Manage Account</a>
+                            <li class="px-2 mb-3"><a href="manage-account.php" class="text-white text-decoration-none">Manage Account</a>
                             </li>
-                            <li class="px-2 mb-3"><a href="mybooking.php" class="text-white text-decoration-none">My Booking</a></li>
+                            <li class="px-2 mb-3"><a href="mybookings.php" class="text-white text-decoration-none">My Booking</a></li>
                             <li class="px-2">
                                 <form method="POST" action="">
                                     <a class="text-white text-decoration-none" href="log-out.php"
