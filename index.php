@@ -29,13 +29,12 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Quickrentz</title>
 </head>
 
 <body>
-
     <!--START OF NAVBAR -->
     <nav class="navbar navbarMain navbar-expand-lg navbar-light p-4">
         <div class="container-fluid">
@@ -71,7 +70,7 @@ session_start();
                             onmouseout="this.style.textDecoration='none';">Pages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ml-5 nav1 text-light" href="#"
+                        <a class="nav-link ml-5 nav1 text-light" href="contactUs.php"
                             style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);"
                             onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';"
                             onmouseout="this.style.textDecoration='none';">Contact</a>
@@ -349,7 +348,19 @@ session_start();
                             class="fa-regular fa-comment-dots"></i> 9</p>
                 </div>
             </div>
-            <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>
+            <div class="item">
+                <iframe width="100%" height="100%"
+                    src="https://www.youtube.com/embed/ieEtGRhjvok?si=D-OLLhg2O4gAq8fs&amp;start=11"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                <p style="text-align:center; margin-top:15px; color:white;">New rules for handling our cars.</p>
+                <div class="blogMessage" style="display: flex; flex-direction: row; margin-top:40px;">
+                    <p style=" color:white; font-size:15px"><i class="fa-regular fa-clock"></i> Jan 21,2023</p>
+                    <p style="text-align: right; margin-left: auto; color:white; font-size:15px;"><i
+                            class="fa-regular fa-comment-dots"></i> 9</p>
+                </div>
+            </div>
             <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>
             <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>
             <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>

@@ -22,7 +22,7 @@ if (isset($_SESSION['username'])) {
     <title>My Bookings</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="renting.css">
+    <link rel="stylesheet" href="css/renting.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@ if (isset($_SESSION['username'])) {
                             onmouseout="this.style.textDecoration='none';">Pages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ml-5 nav1 text-light" href="#"
+                        <a class="nav-link ml-5 nav1 text-light" href="contactUs.php"
                             style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);"
                             onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';"
                             onmouseout="this.style.textDecoration='none';">Contact</a>
