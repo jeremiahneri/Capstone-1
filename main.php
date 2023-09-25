@@ -5,13 +5,14 @@ session_start();
 if (isset($_SESSION['username'])) {
 
     $username = $_SESSION['username'];
+    $userID = $_SESSION['UserID'];
     // $profilePic = $_SESSION['profilePhoto'];
 } else {
 
     header("Location: log-in.php");
     exit;
 }
-// echo $username;
+// echo $userID;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,15 +48,15 @@ if (isset($_SESSION['username'])) {
     <!--START OF NAVBAR -->
     <nav class="navbar navbarMain navbar-expand-lg navbar-light p-4">
         <div class="container">
-            <a class="navbar-brand text-light" href="#">QuickRentz</a>
+            <a class="navbar-brand text-light" href="main.php">QuickRentz</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar1 navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                <li class="nav-item active">
-                    <a class="nav-link ml-5 nav1 text-light" href="#" style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';" onmouseout="this.style.textDecoration='none';">Home</a>
+                    <li class="nav-item active">
+                        <a class="nav-link ml-5 nav1 text-light" href="#">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ml-5 nav1 text-light" href="#" style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';" onmouseout="this.style.textDecoration='none';">Cars</a>
@@ -80,7 +81,9 @@ if (isset($_SESSION['username'])) {
                         <ul class="mt-2 dropdown-menu bg-dark">
                             <li class="px-2 mb-3"><a href="" class="text-white text-decoration-none">Manage Account</a>
                             </li>
-                            <li class="px-2 mb-3"><a href="" class="text-white text-decoration-none">My Booking</a></li>
+                            <li class="px-2 mb-3">
+                                <a href="mybookings.php" class="text-white text-decoration-none">My Booking</a>
+                            </li>
                             <li class="px-2" >
                                 <form method="POST" action="">
                                     <a class="text-white text-decoration-none" href="log-out.php" type="button">Log-out</a>
@@ -265,7 +268,10 @@ if (isset($_SESSION['username'])) {
                             </div>
                             <div class='grid-item2'>
                                 <h5 class='card-title amountText'>₱$results[Rate] / day</h5>
-                                <a href='#'><button class='btn' style='color: white; background-color: #806393;'>Rent Now</button></a>
+                                <form method='GET' action='booknow.php'>
+                                            <input type='hidden' name='VehicleID' value='$results[VehicleID]'>
+                                            <button class='btn' style='color: white; background-color: #806393;'>Rent Now</button>
+                                </form>
                             </div>
                         </div>
                     </div>

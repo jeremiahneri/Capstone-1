@@ -212,15 +212,12 @@ session_start();
     <!-- START SECTION 3 -->
     <div class="container-fluid mt-5">
         <div class="title_main">
-            <h2 class="text-center text-light"
-                style="text-align: left; font-size: 2.5rem; backdrop-filter: blur(10px); color: #fff; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding-top:30px">
-                Choose your Car</h2>
-
+            <h2 class="text-left text-light" style="text-align:left;">FEATURED LISTINGS</h2>
         </div>
         <div class="row">
             <?php
             $selectVehicle = "SELECT vehicle.*, brand.brandName FROM vehicle
-                LEFT JOIN brand ON vehicle.BrandID = brand.BrandID";
+                LEFT JOIN brand ON vehicle.BrandID = brand.BrandID LIMIT 4";
             $initiateSelectVehicle = mysqli_query($conn, $selectVehicle);
             while ($results = mysqli_fetch_assoc($initiateSelectVehicle)) {
                 echo "<div class='col-md-3 mb-2'>
@@ -233,6 +230,8 @@ session_start();
                                     aria-label='Slide 2'></button>
                                 <button type='button' data-bs-target='#$results[Model]' data-bs-slide-to='2'
                                     aria-label='Slide 3'></button>
+                                    <button type='button' data-bs-target='#$results[Model]' data-bs-slide-to='3'
+                                    aria-label='Slide 4'></button>
                             </div>
                             <div class='carousel-inner'>
                                 <div class='carousel-item active'>

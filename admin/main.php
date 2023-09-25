@@ -38,7 +38,7 @@ if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
             </div>
             <ul class="list-unstyled px-2 pt-3">
                 <li class="p-3 active"><a href="main.php" class="text-decoration-none fs-4">Dashboard</a></li>
-                <li class="p-3"><a href="#" class="text-decoration-none fs-4">Manage Booking</a></li>
+                <li class="p-3"><a href="bookings.php" class="text-decoration-none fs-4">Manage Booking</a></li>
                 <li class="p-3"><a href="users.php" class="text-decoration-none fs-4">Customer Credential</a></li>
                 <li class="p-3"><a href="vehicles.php" class="text-decoration-none fs-4">Manage Vehicle</a></li>
                 <li class="p-3"> <a class="text-decoration-none fs-4" data-bs-toggle="collapse" href="#collapseAdd"
@@ -145,11 +145,22 @@ if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
                 <div class="col-md-3">
                     <div class="card custom_card">
                         <div class="card-body text-center" id="card-body1">
-                            <h1 class="card-title">0</h1>
+                        <?php
+                            $sql = "SELECT COUNT(*) as row_count FROM reservation";
+                            $result = mysqli_query($conn, $sql);
+
+                            if ($result) {
+                                $row = mysqli_fetch_assoc($result);
+                                $rowCount = $row['row_count'];
+                            } else {
+                                echo "Error: " . mysqli_error($conn);
+                            }
+                            ?>
+                            <h1 class="card-title"><?php echo htmlentities($rowCount) ?></h1>
                             <p class="card-text">Total Bookings</p>
                         </div>
                         <div class="card-footer">
-                            <a class="text-decoration-none text-dark" href="#">
+                            <a class="text-decoration-none text-dark" href="bookings.php">
                                 Full Details <i class="fa-solid fa-arrow-right" style="color: #000000;"></i>
                             </a>
                         </div>
