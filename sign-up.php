@@ -63,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 <body>
     <div class="container">
         <form method="POST" class="form-signup">
-            <h2 class="text-primary mb-3 text-center">Register</h2>
+            <h2 class="mb-3 text-center" style="color:#806393;">Register</h2>
             <p class="text-center text-light mb-4 mt-0">Create your account</p>
             <div class="row mb-4">
                 <div class="col-md-6">
@@ -108,10 +108,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <div class="form-group mb-4">
                 <label class="form-check-label">
                     <input type="checkbox" name=""> 
-                    <span style="color: white;">I accept the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></span>
+                    <span style="color: white;">I accept the <a href="#" style="color:#806393;">Terms of Use</a> & <a href="#" style="color:#806393;">Privacy Policy</a></span>
                 </label>
             </div>
-            <input type="submit" class="btn btn-primary mt-2 w-100 mb-4 " name="submitbtn">
+            <input type="submit" class="btn mt-2 w-100 mb-4 text-light" style="background-color:#806393;" name="submitbtn">
         </form>
     </div>
 </body>

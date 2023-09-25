@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   <body>
 
     <div class="loginform mt-5" >
-        <h3 class="text-center text-primary">Login</h3>
+        <h3 class="text-center" style="color:#806393;">Login</h3>
 
     <div class="container">
         <form method="POST">
@@ -64,12 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                &nbsp;&nbsp; <a href="#">Forgot password?</a>
+                &nbsp;&nbsp; <a href="#" style="color:#806393;">Forgot password?</a>
             </div>
-            <button type="submit" class="btn btn-primary col-lg-12 col-12 mt-2 mb-3" name="submitbtn">Login</button>
+            <button type="submit" class="btn col-lg-12 col-12 mt-2 mb-3 text-light" style="background-color:#806393;" name="submitbtn">Login</button>
             <div class="register" style="text-align: center;">
             <label class="form-check-label" for="exampleCheck1">Don't have a account?</label>
-            <a href="sign-up.php">Register</a>
+            <a href="sign-up.php" style="color:#806393;">Register</a>
             </div>
           </form>
 

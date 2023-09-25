@@ -54,20 +54,20 @@ if (isset($_SESSION['username'])) {
             </button>
             <div class="collapse navbar1 navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link ml-5 nav1 text-light" href="#">Home</a>
+                <li class="nav-item active">
+                    <a class="nav-link ml-5 nav1 text-light" href="#" style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';" onmouseout="this.style.textDecoration='none';">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav1 text-light" href="#">Cars</a>
+                        <a class="nav-link ml-5 nav1 text-light" href="#" style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';" onmouseout="this.style.textDecoration='none';">Cars</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav1 text-light" href="#">Gallery</a>
+                        <a class="nav-link ml-5 nav1 text-light" href="#" style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';" onmouseout="this.style.textDecoration='none';">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav1 text-light" href="#">Pages</a>
+                        <a class="nav-link ml-5 nav1 text-light" href="#" style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';" onmouseout="this.style.textDecoration='none';">Pages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav1 text-light" href="#">Contact</a>
+                        <a class="nav-link ml-5 nav1 text-light" href="#" style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';" onmouseout="this.style.textDecoration='none';">Contact</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -102,7 +102,37 @@ if (isset($_SESSION['username'])) {
 
     <!--START SECTION 1 (CAROUSEL) -->
 
-    <div class="container-fluid carousel1">
+    <div class="container" style="min-height: 80vh;">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="head1 text-light" style="font-size: 3rem;">THE EASY WAY TO TAKEOVER A LEASE</h2>
+                <h6 class="head1 text-light">Get a 50% Off for every first rent</h6>
+                <br>
+                <div class="head-title2"
+                    style="color: white; margin-top: 50px; display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 10px;">
+                    <div>
+                        <h6><img src="img/check.png" alt="" width="30" height="30"> Flexible Rentals</h6>
+                    </div>
+                    <div>
+                        <h6><img src="img/check.png" alt="" width="30" height="30"> No Hidden Fees</h6>
+                    </div>
+                    <div>
+                        <h6><img src="img/check.png" alt="" width="30" height="30"> Best Price Guarantee</h6>
+                    </div>
+                    <div>
+                        <h6><img src="img/check.png" alt="" width="30" height="30"> 24/7 Road Assistance</h6>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-6">
+                <img src="img/city.jpg" alt="" width="100%" style="border: 0.5px solid black; border-radius: 20px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container-fluid carousel1">
         <div id="carouselExample" class="carousel slide" carousel-fade data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"
@@ -141,12 +171,12 @@ if (isset($_SESSION['username'])) {
                 <span class="carousel-control-next-icon " aria-hidden="true"></span>
             </button>
         </div>
-    </div>
+    </div> -->
 
     <!--END SECTION 1 (CAROUSEL) -->
 
     <!-- START SECTION 2 -->
-    <section>
+    <!-- <section>
         <div class="container container2 mt-5 text-light">
             <h1 class="text-center">Welcome to Quickrentz</h1>
             <div class="row">
@@ -171,12 +201,12 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- END SECTION 2 -->
 
     <!-- START SECTION 3 -->
-    <div class="container container3">
+    <div class="container-fluid">
         <div class="title_main">
             <h2>FEATURED LISTINGS</h2>
         </div>
@@ -186,7 +216,7 @@ if (isset($_SESSION['username'])) {
                 LEFT JOIN brand ON vehicle.BrandID = brand.BrandID";
             $initiateSelectVehicle = mysqli_query($conn, $selectVehicle);
             while ($results = mysqli_fetch_assoc($initiateSelectVehicle)) {
-                echo "<div class='col-md-4 mb-4'>
+                echo "<div class='col-md-3 mb-4'>
                         <div class='card text-light'>
                             <div id='$results[Model]' class='carousel slide'>
                             <div class='carousel-indicators'>
@@ -211,20 +241,11 @@ if (isset($_SESSION['username'])) {
                                     <img src='admin/img/vehicleuploads/$results[Image4]' class='d-block w-100' alt='...'>
                                 </div>
                             </div>
-                            <button class='carousel-control-prev' type='button' data-bs-target='#$results[Model]'
-                                data-bs-slide='prev'>
-                                <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                                <span class='visually-hidden'>Previous</span>
-                            </button>
-                            <button class='carousel-control-next' type='button' data-bs-target='#$results[Model]'
-                                data-bs-slide='next'>
-                                <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                                <span class='visually-hidden'>Next</span>
-                            </button>
+                
                         </div>
                         <div class='card-body'>
                             <div class='card-header'>
-                                <h5 class='card-title'>$results[brandName] $results[Model]</h5>
+                                <h5 class='card-title'>$results[Model]</h5>
                                 <h6 class='card-subTitle'>$results[Year]</h6>
                             </div>
                             <div class='grid-container'>
@@ -258,7 +279,7 @@ if (isset($_SESSION['username'])) {
 
     <!-- START SECTION 4 -->
 
-    <div class="container mainContainer">
+    <!-- <div class="container mainContainer">
         <div class="title_main2">
             <h2>GET STARTED WITH 4 SIMPLE STEPS</h2>
         </div>
@@ -304,25 +325,32 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- End of Section 4 -->
 
     <!-- START SECTION 5 (OWL CAROUSEL) -->
-    <div class="container">
-        <h2 class="text-center">Image Carousel</h2>
-        <div class="owl-carousel owl-theme">
-            <div class="item"><img src="img/car1.jpg" alt="Image 1"></div>
-            <div class="item"><img src="img/car1.jpg" alt="Image 1"></div>
-            <div class="item"><img src="img/car1.jpg" alt="Image 1"></div>
-            <div class="item"><img src="img/car1.jpg" alt="Image 1"></div>
-            <div class="item"><img src="img/car1.jpg" alt="Image 1"></div>
-            <div class="item"><img src="img/car1.jpg" alt="Image 1"></div>
-            <div class="item"><img src="img/car1.jpg" alt="Image 1"></div>
-            <div class="item"><img src="img/car1.jpg" alt="Image 1"></div>
-            <div class="item"><img src="img/car1.jpg" alt="Image 1"></div>
+    <div class="container-fluid"  style="height:55vh;">
+        <h2 class="text-center text-light" style="margin-top: 50px; font-size: 40px; margin-bottom: 50px;">Our Blog</h2>
+        <div class="owl-carousel owl-theme" style="width:100%; height:35vh;">
+                <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh; width:100%;">
+                <p style="text-align:center; margin-top:15px; color:white;">New rules for handling our cars.</p>
+            <div class="blogMessage" style="display: flex; flex-direction: row; margin-top:40px;">
+                <p style=" color:white; font-size:15px"><i class="fa-regular fa-clock"></i> Jan 21,2023</p>
+                <p style="text-align: right; margin-left: auto; color:white; font-size:15px;"><i class="fa-regular fa-comment-dots"></i> 9</p>
+            </div>
+            </div>
+            <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>
+            <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>
+            <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>
+            <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>
+            <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>
+            <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>  
+            <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>  
+            <div class="item"><img src="img/car1.jpg" alt="Image 1" style="height:19vh;"></div>  
         </div>
     </div>
+
     <!-- END SECTION 5 (OWL CAROUSEL) -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -368,22 +396,26 @@ if (isset($_SESSION['username'])) {
                     <p>Pricing Packages</p>
 
                 </div>
-                <div class="col-md-3" id="div3">
+                <div class="col-md-3" id="div3" style="display: flex; flex-direction: column; align-items: center;">
                     <h2 style="margin-bottom: 20px;">Contact</h2>
-                    <span class="contact-item">
-                        <i class="fa-solid fa-location-dot" style="color: #806393;"></i> Lorem ipsum dolor sit amet
-                        consectetur
+                    <span class="contact-item" style="display: flex; align-items: center;">
+                        <i class="fa-solid fa-location-dot" style="color: #806393; margin-right: 25px;"></i>
+                        <span>Lorem ipsum dolor sit amet </span>
                     </span>
-                    <span class="contact-item">
-                        <i class="fa-solid fa-clock" style="color: #806393;"></i> Mon-Sat 8:00am to 11:00pm
+                    <span class="contact-item" style="display: flex; align-items: center;">
+                        <i class="fa-solid fa-clock" style="color: #806393; margin-right: 22px;"></i>
+                        <span>Mon-Sat 8:00am to 11:00pm</span>
                     </span>
-                    <span class="contact-item">
-                        <i class="fa-solid fa-envelope" style="color: #806393;"></i> quickrentz.main@gmail.com
+                    <span class="contact-item" style="display: flex; align-items: center;">
+                        <i class="fa-solid fa-envelope" style="color: #806393; margin-right: 15px;"></i>
+                        <span>quickrentz.main@gmail.com</span>
                     </span>
-                    <span class="contact-item">
-                        <i class="fa-solid fa-phone" style="color: #806393;"></i> +63 9693568001 / 939-54-72
+                    <span class="contact-item" style="display: flex; align-items: center;">
+                        <i class="fa-solid fa-phone" style="color: #806393; margin-right: 10px;"></i>
+                        <span>+63 9693568001 / 939-54-72</span>
                     </span>
                 </div>
+                
                 <div class="col-md-3" id="div4">
                     <h2 style="margin-bottom: 20px;">Newsletter</h2>
                     <!-- <p>Subscribe for the new articles</p> -->
@@ -402,6 +434,7 @@ if (isset($_SESSION['username'])) {
                     </div>
                     <p style="margin-top: 20px;">&copy; 2023 QuickRentz. All Rights Reserved.</p>
                 </div>
+
 
             </div>
         </div>
