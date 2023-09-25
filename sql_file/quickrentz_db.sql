@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2023 at 04:31 PM
+-- Generation Time: Sep 25, 2023 at 05:39 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -60,20 +60,6 @@ CREATE TABLE `brand` (
   `brandLogo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `brand`
---
-
-INSERT INTO `brand` (`BrandID`, `brandName`, `brandLogo`) VALUES
-(2, 'Toyota', 0),
-(3, 'Toyotas', 0),
-(4, 'Sample Brandsz', 1695356494),
-(5, 'Bmw', 1695357049),
-(6, 'Ford', 1695357484),
-(7, 'Isuzu', 1695357494),
-(8, 'Honda', 1695357505),
-(9, 'Chevrolet', 1695447703);
-
 -- --------------------------------------------------------
 
 --
@@ -90,17 +76,6 @@ CREATE TABLE `reservation` (
   `Status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `reservation`
---
-
-INSERT INTO `reservation` (`ReservationID`, `UserID`, `VehicleID`, `Pickup`, `Return`, `Message`, `Status`) VALUES
-(1, 4, 44, '2023-09-26', '2023-09-28', 'yes zirrr', 'Not yet Confirmed'),
-(2, 4, 49, '2023-09-30', '2023-10-05', 'pa book po', 'Not yet Confirmed'),
-(3, 15, 49, '2023-09-26', '2023-09-28', 'bobooo', 'Not yet Confirmed'),
-(4, 15, 44, '2023-09-29', '2023-09-16', 'yahoooo', 'Not yet Confirmed'),
-(5, 4, 49, '2023-09-27', '2023-09-28', '', 'Not yet Confirmed');
-
 -- --------------------------------------------------------
 
 --
@@ -115,28 +90,23 @@ CREATE TABLE `user` (
   `PhoneNumber` int(12) NOT NULL,
   `Address` varchar(250) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Password` varchar(11) NOT NULL
+  `Password` varchar(11) NOT NULL,
+  `Status` text NOT NULL,
+  `Photo` varchar(50) NOT NULL,
+  `AccCreated` datetime NOT NULL DEFAULT current_timestamp(),
+  `FrontID` varchar(50) NOT NULL,
+  `BackID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `PhoneNumber`, `Address`, `Email`, `Password`) VALUES
-(3, 'yonggg', 'yangass113', 'margie', 915846384, 'tagb', 'margie@gmail.com', '123'),
-(4, 'yangzzz343', 'don allen', 'Veloso', 915846384, 'tagb', 'velosodonallen@gmail.com', '123'),
-(5, 'abawis', 'saw', 'saw', 23124134, 'sawws', 'sawss@gmail.com', '123'),
-(6, 'jelo', 'jerimiah', 'neri', 912345662, 'manila', 'jerimiah@gmail.com', '123'),
-(7, 'lykagwapa', 'lyka', 'lumapas', 912344566, 'tagbilaran city bohol', 'lykalumapas@gmail.com', '1234'),
-(8, 'saw123', 'saw', 'saw', 23124134, 'sawws', 'gawikss@gmail.com', '123'),
-(10, 'harold1232', 'harold', 'behial', 9122423, 'amaerica city bohol', 'test123@gmail.com', '123'),
-(11, 'harry232', 'harru', 'pota', 124343434, 'maribojolv', 'testpass@gmail.com', '$2y$10$pKxE'),
-(12, 'testinngpas', 'pas', 'wordds', 132413431, 'maribojoc ', 'testnew123@gmail.com', '$2y$10$MsOP'),
-(13, 'testtiii123', 'saw', 'saw', 23124134, 'sawws', 'testnew1233@gmail.com', '$2y$10$SRbu'),
-(14, 'yongii23', 'allen', 'Veloso', 122321434, 'purok 1, anislag', 'allen@gmail.com', '$2y$10$gyf0'),
-(15, 'dandan', 'dan bryelle', 'balansag', 2147483647, 'Anislag Maribojoc Bohol', 'bryelle@gmail.com', 'dandan123'),
-(16, 'testiacc', 'test', 'signup', 2147483647, 'tagb', 'testss21s@gmail.com', '123'),
-(17, 'jeremiah17', 'Jeremiah', 'Neri', 912345678, 'manila', 'jeremiahangelo.neri@gmail.com', 'qwerty123');
+INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `PhoneNumber`, `Address`, `Email`, `Password`, `Status`, `Photo`, `AccCreated`, `FrontID`, `BackID`) VALUES
+(20, 'testrun123', 'test', 'run', 915846232, 'tagb', 'tesstsaw@gmail.com', '1233', 'Account Verified', '1695645574_hUZqnd7coR.png', '2023-09-25 19:56:41', '1695651126_nVp6tWIamg.jpg', '1695651126_nDeTaKymqH.jpg'),
+(21, 'timedate', 'testdate', 'time', 915846384, 'tagb', 'timedate@gmail.com', '123', 'Account Rejected', 'avatar1.png', '2023-09-25 19:59:17', '', ''),
+(22, 'unigah', 'testuuu', 'yongi', 122321434, 'purok 1, anislag', 'allen21@gmail.com', '123', 'Account Rejected', 'avatar1.png', '2023-09-25 22:18:01', '1695653702_CXVjmhrHzL.jpg', '1695653702_sX9F1ehU50.jpg'),
+(23, 'testing123', 'test', 'onetwo', 915846384, 'tagb', 'testing123@gmail.com', 'testing123', 'Account Verified', '1695655706_jhDIe28QEa.png', '2023-09-25 23:27:54', '1695655759_jgW8XL14CI.jpg', '1695655759_CR8DVkzuFB.jpg');
 
 -- --------------------------------------------------------
 
@@ -160,15 +130,6 @@ CREATE TABLE `vehicle` (
   `Image3` varchar(60) NOT NULL,
   `Image4` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `vehicle`
---
-
-INSERT INTO `vehicle` (`VehicleID`, `BrandID`, `Model`, `Year`, `Type`, `FuelType`, `Transmision`, `Mileage`, `SeatingCapacity`, `Rate`, `Image1`, `Image2`, `Image3`, `Image4`) VALUES
-(44, 2, 'Wigos', 2021, 'Sedan', 'Petrol', 'Automatic', '19990', 4, 2500, '1695399225_ct2qsHwhCY.png', '1695399225_ATis0ZQONh.png', '1695399225_AjV6MEiPZG.png', '1695399225_YyszORlcev.'),
-(46, 6, 'Ranger', 2019, 'Pick-up', 'Petrol', 'Manual', '199998', 4, 2000, '1695399295_RIP8QayY26.png', '1695399295_364NzGcQWd.png', '1695399295_32zxJR9EhI.png', '1695399295_ATL17Jlxg8.'),
-(49, 6, 'Everest', 2023, 'SUV', 'Diesel', 'Automatic', '10000', 8, 120, '1695531518_me0KEVTbQi.png', '1695531518_IU6bW4puL5.jpg', '1695531518_0upIMbqA6O.jpg', '1695531518_gSvbeDaz2q.');
 
 --
 -- Indexes for dumped tables
@@ -224,19 +185,19 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `VehicleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `VehicleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -39,16 +39,18 @@ if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
             </div>
             <ul class="list-unstyled px-2 pt-3">
                 <li class="p-3"><a href="main.php" class="text-decoration-none fs-4">Dashboard</a></li>
-                <li class="p-3"><a href="#" class="text-decoration-none fs-4">Manage Booking</a></li>
-                <li class="p-3"><a href="users.php" class="text-decoration-none fs-4">Customer Credential</a></li>
+                <li class="p-3"><a href="bookings.php" class="text-decoration-none fs-4">Manage Booking</a></li>
+                <li class="p-3"><a href="manageUsers.php" class="text-decoration-none fs-4">Manage Users</a></li>
+                <li class="p-3"><a href="users.php" class="text-decoration-none fs-4">Users Credential</a></li>
                 <li class="p-3 active"><a href="vehicles.php" class="text-decoration-none fs-4">Manage Vehicle</a></li>
                 <li class="p-3"> <a class="text-decoration-none fs-4" data-bs-toggle="collapse" href="#collapseAdd"
                         role="button" aria-expanded="false" aria-controls="collapseAdd">Add <i
                             class="fa-solid fa-caret-down"></i>
                     </a>
                     <ul class="collapse list-unstyled" id="collapseAdd">
-                        <li><a class="text-decoration-none fs-5 p-3" href="addVehicles.php">Car</a></li>
-                        <li><a class="text-decoration-none fs-5 p-3" href="addAdmins.php">Admin</a></li>
+                        <a class="text-decoration-none fs-5 " href="addVehicles.php"><li class="pb-2 px-5">Car</li></a>
+                        <a class="text-decoration-none fs-5 " href="addBrand.php"><li class="pb-2 px-5">Brand</li></a>
+                        <a class="text-decoration-none fs-5" href="addAdmins.php"><li class="pb-2 px-5">Admin</li></a>
                     </ul>
                 </li>
             </ul>

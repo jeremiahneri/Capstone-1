@@ -12,6 +12,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $address = $_POST['address'];
   $password = $_POST['password'];
   $conpassword = $_POST['conpassword'];
+  $photo = "avatar1.png";
+  $status = "Not Yet Verified";
 
   if(!empty($email) && !empty($password) && !is_numeric($email)){
 
@@ -30,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
           // $enc_password = password_hash($password, $password_default);
 
-          $insert = "INSERT INTO `user`(`Username`, `FirstName`, `LastName`, `PhoneNumber`, `Address`, `Email`, `Password`) VALUES ('$username','$fname','$lname','$phone','$address','$email','$password')";
+          $insert = "INSERT INTO `user`(`Username`, `FirstName`, `LastName`, `PhoneNumber`, `Address`, `Email`, `Password`, `Status`, `Photo`) VALUES ('$username','$fname','$lname','$phone','$address','$email','$password','$status','$photo')";
           mysqli_query($conn, $insert);
 
           echo "<script type='text/javascript'>alert('Successully Registered!')</script>";
@@ -107,7 +109,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             </div>
             <div class="form-group mb-4">
                 <label class="form-check-label">
-                    <input type="checkbox" name=""> 
+                    <input type="checkbox" name="" required> 
                     <span style="color: white;">I accept the <a href="#" style="color:#806393;">Terms of Use</a> & <a href="#" style="color:#806393;">Privacy Policy</a></span>
                 </label>
             </div>

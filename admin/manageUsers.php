@@ -2,7 +2,7 @@
 include "includes/database.php";
 session_start();
 
-if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
+if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
 
     $username = $_SESSION['AdminUsername'];
     $profilePic = $_SESSION['profilePhoto'];
@@ -11,7 +11,6 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
     header("Location: log-in.php");
     exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,8 +37,8 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
             </div>
             <ul class="list-unstyled px-2 pt-3">
                 <li class="p-3"><a href="main.php" class="text-decoration-none fs-4">Dashboard</a></li>
-                <li class="p-3 active"><a href="bookings.php" class="text-decoration-none fs-4">Manage Booking</a></li>
-                <li class="p-3"><a href="manageUsers.php" class="text-decoration-none fs-4">Manage Users</a></li>
+                <li class="p-3"><a href="bookings.php" class="text-decoration-none fs-4">Manage Booking</a></li>
+                <li class="p-3 active"><a href="manageUsers.php" class="text-decoration-none fs-4">Manage Users</a></li>
                 <li class="p-3"><a href="users.php" class="text-decoration-none fs-4">Users Credential</a></li>
                 <li class="p-3"><a href="vehicles.php" class="text-decoration-none fs-4">Manage Vehicle</a></li>
                 <li class="p-3"> <a class="text-decoration-none fs-4" data-bs-toggle="collapse" href="#collapseAdd"
@@ -78,8 +77,7 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <h5 class="text-white my-auto p-4">
-                                    <img src='img/adminprofilephoto/<?php echo $profilePic ?>' alt=''
-                                        style='border:2px solid #000;border-radius: 50px;' height='50'>
+                                <img src='img/adminprofilephoto/<?php echo $profilePic ?>' alt='' style='border:2px solid #000;border-radius: 50px;' height='50'>
                                     <?php
                                     echo $username;
                                     ?>
@@ -89,7 +87,7 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
                     </div>
                 </div>
             </nav>
-            <h1 class="col-md-12 px-3">Manage Bookings</h1>
+            <h1 class="col-md-12 px-3">Manage Users</h1>
             <hr>
             <div class="container">
                 <table id="pagination" class="table table-striped table-bordered" style="width:100%;">
@@ -97,74 +95,62 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Full Name</th>
-                            <th scope="col">Vehicle</th>
-                            <th scope="col">Pick-up</th>
-                            <th scope="col">Return</th>
-                            <th scope="col">Message</th>
+                            <th scope="col">Account Created</th>
+                            <th scope="col">Front License</th>
+                            <th scope="col">Back License</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        // $sqlReservation = "SELECT * FROM `reservation`";
-                        $sqlReservation = "SELECT user.FirstName, user.LastName, brand.brandName, vehicle.Model, reservation.* FROM reservation INNER JOIN user ON reservation.UserID = user.UserID INNER JOIN vehicle ON reservation.VehicleID = vehicle.VehicleID
-                        INNER JOIN brand ON vehicle.BrandID = brand.BrandID";
-                        $initiateReservation = mysqli_query($conn, $sqlReservation);
-                        while ($results = mysqli_fetch_assoc($initiateReservation)) {
-                            if($results['Status'] == 'Booking Confirmed'){
-                                $status = "<td class='text-success'>$results[Status]</td>";
-                            }elseif($results['Status'] == 'Booking Cancelled'){
-                                $status = "<td class='text-danger'>$results[Status]</td>";
-                            }else{
-                                $status = "<td class='text-warning'>$results[Status]</td>";
-                            }
+                        $sqlUserList = "SELECT * FROM `user`";
+                        $initiateUserList = mysqli_query($conn, $sqlUserList);
+                        while ($results = mysqli_fetch_assoc($initiateUserList)) {
                             echo "
                                 <tr>
-                                    <th scope='row'>$results[ReservationID]</th>
+                                    <th scope='row'>$results[UserID]</th>
                                     <td>$results[FirstName] $results[LastName]</td>
-                                    <td>$results[brandName] $results[Model]</td>
-                                    <td>$results[Pickup]</td>
-                                    <td>$results[Return]</td>
-                                    <td>$results[Message]</td>
-                                    $status
-                                    <td class='d-flex'>
-                                        <form method='GET' action='confirm.php' class='px-2'>
-                                            <input type='hidden' name='ReservationID' value='$results[ReservationID]'>
-                                            <button type='submit' class='btn-delete text-success' style='border:none;background:none;'>Confirm</button>
+                                    <td>$results[AccCreated]</td>
+                                    <td><a href='img/liscense/{$results['FrontID']}'><img src='img/liscense/{$results['FrontID']}' alt='Front of License' width='150'></a></td>
+                                    <td><a href='img/liscense/{$results['BackID']}'><img src='img/liscense/{$results['BackID']}' alt='Back of License' width='150'></a></td>
+                                    <td>$results[Status]</td>
+                                    <td>
+                                        <form method='GET' action='verifyUser.php' class='px-2'>
+                                            <input type='hidden' name='UserID' value='$results[UserID]'>
+                                            <button type='submit' class='btn-delete text-success' style='border:none;background:none;'>Approve Verification</button>
                                         </form>
-                                        <form method='GET' action='cancel.php' class='px-2'>
-                                            <input type='hidden' name='ReservationID' value='$results[ReservationID]'>
-                                            <button type='submit' class='btn-delete text-danger' style='border:none;background:none;'>Cancel</button>
+                                        <form method='GET' action='rejectUser.php' class='px-2'>
+                                            <input type='hidden' name='UserID' value='$results[UserID]'>
+                                            <button type='submit' class='btn-delete text-danger' style='border:none;background:none;'>Reject</button>
                                         </form>
-                                        <form method='GET' action='deletebooking.php' class='px-2'>
-                                            <input type='hidden' name='ReservationID' value='$results[ReservationID]'>
-                                            <button type='submit' class='btn-delete text-danger' style='border:none;background:none;'>Delete</button>
-                                        </form>
-                                       
                                     </td>
                                 </tr>";
                         }
-
+                        
                         ?>
                     </tbody>
-
+                    
                     <tfoot>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Full Name</th>
-                            <th scope="col">Vehicle</th>
-                            <th scope="col">Pick-up</th>
-                            <th scope="col">Return</th>
-                            <th scope="col">Message</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Contact No.</th>
+                            <th scope="col">Full Address</th>
+                            <th scope="col">Email</th>
                         </tr>
                     </tfoot>
                 </table>
             </div>
         </div>
     </div>
+     <!-- CDN FOR PAGINATION -->
+     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
@@ -180,6 +166,7 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
         $(".close-btn").on('click', function () {
             $('.sidebar').removeClass('active');
         });
+        new DataTable('#pagination');
     </script>
 </body>
 

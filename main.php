@@ -56,7 +56,7 @@ if (isset($_SESSION['username'])) {
             <div class="collapse navbar1 navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link ml-5 nav1 text-light" href="#">Home</a>
+                        <a class="nav-link ml-5 nav1 text-light" href="main.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ml-5 nav1 text-light" href="#" style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';" onmouseout="this.style.textDecoration='none';">Cars</a>
@@ -79,7 +79,7 @@ if (isset($_SESSION['username'])) {
                             <?php echo $username; ?>
                         </button>
                         <ul class="mt-2 dropdown-menu bg-dark">
-                            <li class="px-2 mb-3"><a href="" class="text-white text-decoration-none">Manage Account</a>
+                            <li class="px-2 mb-3"><a href="manage-account.php" class="text-white text-decoration-none">Manage Account</a>
                             </li>
                             <li class="px-2 mb-3">
                                 <a href="mybookings.php" class="text-white text-decoration-none">My Booking</a>

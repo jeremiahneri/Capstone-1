@@ -4,6 +4,6 @@
 
     unset($_SESSION['AdminUsername']);
 
-    header("location: log-in.php");
+    header("location: index.php");
     exit;
 ?>
