@@ -392,8 +392,8 @@ function generateUniqueFileName($originalFileName)
                 </div>
             </div>
         </div>
-        <form class="text-right mt-3">
-            <a href="main.php">Back to Mainpage</a>
+        <form class="text-right mt-2 mr-3">
+            <a href="main.php" style="color:#7b59a3;">Back to Mainpage</a>
         </form>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

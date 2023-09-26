@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Booking System</title>
-    <link rel="stylesheet" href="css/renting.css">
     <!-- Include Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/renting.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             onmouseout="this.style.textDecoration='none';">Pages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ml-5 nav1 text-light" href="contactUs.php"
+                        <a class="nav-link ml-5 nav1 text-light" href="#"
                             style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);"
                             onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';"
                             onmouseout="this.style.textDecoration='none';">Contact</a>
@@ -139,21 +139,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <button type="button" data-bs-target="#<?php echo $result['Model'] ?>" data-bs-slide-to="3"
                                 aria-label="Slide 4"></button>
                         </div>
-                        <div class="carousel-inner">
+                        <div class="carousel-inner w-100 h-100">
                             <div class="carousel-item active">
                                 <img src="admin/img/vehicleuploads/<?php echo $result['Image1'] ?>"
-                                    class="d-block w-100" alt="...">
+                                    class="d-block w-100 h-100" alt="...">
                             </div>
                             <div class="carousel-item">
                                 <img src="admin/img/vehicleuploads/<?php echo $result['Image2'] ?>"
-                                    class="d-block w-100" alt="...">
+                                    class="d-block w-100 h-100" alt="...">
                             </div>
                             <div class="carousel-item">
                                 <img src="admin/img/vehicleuploads/<?php echo $result['Image3'] ?>"
-                                    class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="admin/img/vehicleuploads/<?php echo $result['Image4'] ?>"
                                     class="d-block w-100" alt="...">
                             </div>
                         </div>

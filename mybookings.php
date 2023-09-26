@@ -27,6 +27,11 @@ if (isset($_SESSION['username'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -43,31 +48,26 @@ if (isset($_SESSION['username'])) {
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
                         <a class="nav-link ml-5 nav1 text-light" href="main.php"
-                            style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);"
+                            style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);font-family: 'Poppins', sans-serif;font-size:3rem;font-size:1.5rem;"
                             onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';"
                             onmouseout="this.style.textDecoration='none';">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ml-5 nav1 text-light" href="#"
-                            style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);"
+                        <a class="nav-link ml-4 nav1 text-light" href="main.php"
+                            style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);font-family: 'Poppins', sans-serif;font-size:3rem;font-size:1.5rem;"
                             onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';"
                             onmouseout="this.style.textDecoration='none';">Cars</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ml-5 nav1 text-light" href="#"
-                            style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);"
+                        <a class="nav-link ml-3 nav1 text-light" href="main.php"
+                            style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);font-family: 'Poppins', sans-serif;font-size:3rem;font-size:1.5rem;"
                             onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';"
-                            onmouseout="this.style.textDecoration='none';">Gallery</a>
+                            onmouseout="this.style.textDecoration='none';">Blog</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link ml-5 nav1 text-light" href="#"
-                            style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);"
-                            onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';"
-                            onmouseout="this.style.textDecoration='none';">Pages</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-5 nav1 text-light" href="contactUs.php"
-                            style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);"
+                        <a class="nav-link ml-3 nav1 text-light" href="contactUs.php"
+                            style="color: grey; text-decoration: none; text-underline-offset: 1rem; text-decoration-color: rgba(181, 181, 181);font-family: 'Poppins', sans-serif;font-size:3rem;font-size:1.5rem;"
                             onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='rgba(181, 181, 181)';"
                             onmouseout="this.style.textDecoration='none';">Contact</a>
                     </li>
