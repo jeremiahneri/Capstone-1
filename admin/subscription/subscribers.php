@@ -1,5 +1,5 @@
 <?php
-include "includes/database.php";
+include "../includes/database.php";
 session_start();
 
 if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
@@ -11,6 +11,7 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
     header("Location: log-in.php");
     exit;
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -24,8 +25,8 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Admin | Users</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
@@ -40,29 +41,31 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
                 </button>
             </div>
             <ul class="list-unstyled px-2 pt-3">
-                <li class="p-3"><a href="main.php" class="text-decoration-none fs-4"><i class="fa-solid fa-gauge"></i>
+                <li class="p-3"><a href="../main.php" class="text-decoration-none fs-4"><i
+                            class="fa-solid fa-gauge"></i>
                         Dashboard</a></li>
-                <li class="p-3"><a href="bookings.php" class="text-decoration-none fs-4"><i
+                <li class="p-3"><a href="../bookings.php" class="text-decoration-none fs-4"><i
                             class="fa-regular fa-pen-to-square"></i> Manage Booking</a></li>
-                <li class="p-3"><a href="manageUsers.php" class="text-decoration-none fs-4"><i
+                <li class="p-3"><a href="../manageUsers.php" class="text-decoration-none fs-4"><i
                             class="fa-solid fa-users-gear"></i> Manage Users</a></li>
-                <li class="p-3 active"><a href="users.php" class="text-decoration-none fs-4"><i
+                <li class="p-3"><a href="../users.php" class="text-decoration-none fs-4"><i
                             class="fa-solid fa-users"></i>
                         Users Credential</a></li>
-                <li class="p-3"><a href="vehicles.php" class="text-decoration-none fs-4"><i class="fa-solid fa-car"></i>
+                <li class="p-3"><a href="../vehicles.php" class="text-decoration-none fs-4"><i
+                            class="fa-solid fa-car"></i>
                         Manage Vehicle</a></li>
                 <li class="p-3"> <a class="text-decoration-none fs-4" data-bs-toggle="collapse" href="#collapseAdd"
                         role="button" aria-expanded="false" aria-controls="collapseAdd"><i class="fa-solid fa-plus"></i>
                         Add <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <ul class="collapse list-unstyled" id="collapseAdd">
-                        <a class="text-decoration-none fs-5 " href="addVehicles.php">
+                        <a class="text-decoration-none fs-5 " href="../addVehicles.php">
                             <li class="pb-2 px-5">Car</li>
                         </a>
-                        <a class="text-decoration-none fs-5 " href="addBrand.php">
+                        <a class="text-decoration-none fs-5 " href="../addBrand.php">
                             <li class="pb-2 px-5">Brand</li>
                         </a>
-                        <a class="text-decoration-none fs-5" href="addAdmins.php">
+                        <a class="text-decoration-none fs-5" href="../addAdmins.php">
                             <li class="pb-2 px-5">Admin</li>
                         </a>
                     </ul>
@@ -78,39 +81,38 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
             </ul>
         </div>
         <div class="content">
-            <?php include "includes/navbar.php"; ?>
+            <?php include "../includes/navbar.php"; ?>
             <div class="container-fluid bg-white">
-                <h1 class="col-md-12 px-3">List of Registered Users</h1>
+                <h1 class="col-md-12 px-3">Subscribers</h1>
                 <hr>
             </div>
             <div class="container">
                 <div class="container-fluid" style="border: 2px solid #000; border-radius: 10px;background-color: rgba(8, 103, 136, 0.7);">
-                    <table id="pagination" class="table table-striped table-bordered" style="width:100%;">
+                    <table id="pagination" class="table table-bordered table-striped" style="width:100%;">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Contact No.</th>
-                                <th scope="col">Full Address</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Subscribed Date</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $sqlUserList = "SELECT * FROM `user`";
-                            $initiateUserList = mysqli_query($conn, $sqlUserList);
-                            while ($results = mysqli_fetch_assoc($initiateUserList)) {
+                            $sqlSubscriptionList = "SELECT * FROM `subscription`";
+                            $initiateSubscriptionList = mysqli_query($conn, $sqlSubscriptionList);
+                            while ($results = mysqli_fetch_assoc($initiateSubscriptionList)) {
                                 echo "
                                 <tr>
-                                    <th scope='row'>$results[UserID]</th>
-                                    <td>$results[FirstName]</td>
-                                    <td>$results[LastName]</td>
-                                    <td>$results[Username]</td>
-                                    <td>$results[PhoneNumber]</td>
-                                    <td>$results[Address]</td>
-                                    <td>$results[Email]</td>
+                                    <th scope='row'>$results[subsID]</th>
+                                    <td>$results[email]</td>
+                                    <td>$results[subscribedDate]</td>
+                                    <td class='d-flex'>
+                                        <form method='GET' action='del.php' class='px-2'>
+                                            <input type='hidden' name='subscriber' value='$results[subsID]'>
+                                            <button type='submit' class='btn-delete'><i class='fas fa-trash-alt'></i></button>
+                                        </form> 
+                                    </td>
                                 </tr>";
                             }
                             ?>
@@ -118,12 +120,9 @@ if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
                         <tfoot>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Contact No.</th>
-                                <th scope="col">Full Address</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Subscribed Date</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </tfoot>
                     </table>

@@ -1,5 +1,5 @@
 #side_nav{
-    background-color: #000000;
+    /* background-color: #000000; */
     min-width: 265px;
     max-width: 265px;
     transition: 0.5s;
@@ -38,10 +38,30 @@
     position: absolute;
     right: 0%;
 }
+.main-container{
+    background-image: url('img/photo-1585503418537-88331351ad99.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 #card-body1{
-    background-color: aqua;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    background-color: #086788;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+#card-body2{
+    background-color: #C46D5E;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+#card-body3{
+    background-color: #F2C078;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+#card-body4{
+    background-color: #C1DBB3;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 /* #addvehiclez{
     border: 2px solid #000;

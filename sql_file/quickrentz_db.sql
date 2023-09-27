@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2023 at 03:31 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Sep 27, 2023 at 03:56 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -78,6 +78,27 @@ INSERT INTO `brand` (`BrandID`, `brandName`, `brandLogo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `MessageID` int(11) NOT NULL,
+  `Name` text NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Message` text NOT NULL,
+  `DateAndTimeRecieved` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`MessageID`, `Name`, `Email`, `Message`, `DateAndTimeRecieved`) VALUES
+(4, 'don allen tutor Veloso', 'velosodonallen@gmail.com', 'asfasfa sfasff', '2023-09-26 02:49:55');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reservation`
 --
 
@@ -90,6 +111,33 @@ CREATE TABLE `reservation` (
   `Message` text NOT NULL,
   `Status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`ReservationID`, `UserID`, `VehicleID`, `Pickup`, `Return`, `Message`, `Status`) VALUES
+(17, 22, 54, '2023-09-28', '2023-09-29', 'Hi', 'Not yet Confirmed'),
+(18, 26, 54, '2023-09-28', '2023-09-29', 'pa abanga ko uli ra dayon', 'Booking Confirmed');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscription`
+--
+
+CREATE TABLE `subscription` (
+  `subsID` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `subscribedDate` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subscription`
+--
+
+INSERT INTO `subscription` (`subsID`, `email`, `subscribedDate`) VALUES
+(2, 'sawss@gmail.com', '2023-09-27');
 
 -- --------------------------------------------------------
 
@@ -123,7 +171,8 @@ INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `PhoneNumber`
 (22, 'unigah', 'testuuu', 'yongi', 122321434, 'purok 1, anislag', 'allen21@gmail.com', '123', 'Account Rejected', 'avatar1.png', '2023-09-25 22:18:01', '1695653702_CXVjmhrHzL.jpg', '1695653702_sX9F1ehU50.jpg'),
 (23, 'testing123', 'test', 'onetwo', 915846384, 'tagb', 'testing123@gmail.com', 'testing123', 'Account Verified', '1695655706_jhDIe28QEa.png', '2023-09-25 23:27:54', '1695655759_jgW8XL14CI.jpg', '1695655759_CR8DVkzuFB.jpg'),
 (24, 'jeremiah17', 'Jeremiah', 'Neri', 912345678, 'quezon city', 'jeremiahangelo.neri@gmail.com', 'ytrewq321', 'Not Yet Verified', 'avatar1.png', '2023-09-26 00:13:43', '', ''),
-(25, 'allen_admin', 'allen', 'Veloso', 915846384, 'tagb', 'allen@gmail.com', '123', 'Not Yet Verified', 'avatar1.png', '2023-09-26 02:14:53', '', '');
+(25, 'allen_admin', 'allen', 'Veloso', 915846384, 'tagb', 'allen@gmail.com', '123', 'Not Yet Verified', 'avatar1.png', '2023-09-26 02:14:53', '', ''),
+(26, 'testaccount', 'test', 'account', 2147483647, 'amaerica city bohol', 'test@gmail.com', '123', 'Account Rejected', 'avatar1.png', '2023-09-27 01:47:43', '', '');
 
 -- --------------------------------------------------------
 
@@ -153,14 +202,14 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`VehicleID`, `BrandID`, `Model`, `Year`, `Type`, `FuelType`, `Transmision`, `Mileage`, `SeatingCapacity`, `Rate`, `Image1`, `Image2`, `Image3`, `Image4`) VALUES
-(53, 10, 'Fortuner', '2023', 'SUV', 'Diesel', 'Automatic', '5,000', 8, 7000, '1695658171_4qpGIeoATk.png', '1695658171_UyzrBPena1.png', '1695658171_2r6GDtp4Uu.png', '1695658171_a1LN3xneI4.'),
-(54, 11, 'Sentra', '2023', 'Sedan', 'Petrol', 'Automatic', '2,000', 4, 3000, '1695659060_VFB8OMyUPo.png', '1695659060_DfSyzp84Tm.png', '1695659060_RyTDUCKb3i.png', '1695659060_inb4WxuET7.'),
-(56, 13, 'Civic', '2023', 'Sedan', 'Petrol', 'Manual', '2,500', 4, 4000, '1695659285_ClpMGruO7U.png', '1695659285_Pxb6DVHmAY.png', '1695659285_IlxUXsgG2Z.png', '1695659285_gG8uifJ6zx.'),
-(57, 14, 'MU-X', '2022', 'SUV', 'Diesel', 'Automatic', '4000', 8, 4500, '1695659383_bzaA7k5US2.png', '1695659383_02xWJbSHcE.png', '1695659383_jcN50xs1IC.png', '1695659383_a6XwNjGWqp.'),
-(58, 15, 'Elantra', '2023', 'Sedan', 'Petrol', 'Automatic', '5000', 4, 4700, '1695659667_nCd7HEAwrP.png', '1695659667_nqRKbvOuFp.png', '1695659667_rlEL5TpYsw.png', '1695659667_WQVpE17dX4.'),
-(59, 16, 'Trailblazer', '2023', 'SUV', 'Petrol', 'Automatic', '1500', 8, 6000, '1695659792_LzWwZuGRSy.png', '1695659792_9DRT1oqHny.png', '1695659792_9bYPv4dWGo.png', '1695659792_wHNKJA5VcG.'),
-(60, 17, 'CX-5', '2023', 'SUV', 'Petrol', 'Automatic', '3500', 6, 4300, '1695659867_rGte1fMYlB.png', '1695659867_A8tMos3Ydc.png', '1695659867_N5yGV4RslH.png', '1695659867_5FlLxOQK93.'),
-(61, 18, 'Montero', '2023', 'SUV', 'Petrol', 'Automatic', '3200', 8, 5500, '1695660070_Vo8MwSLjPp.png', '1695660070_Y6swirUa7m.png', '1695660070_aRc75gZpxH.png', '1695660070_iUaH70cRS5.');
+(53, 10, 'Fortuner', 2023, 'SUV', 'Diesel', 'Automatic', '5,000', 8, 7000, '1695658171_4qpGIeoATk.png', '1695658171_UyzrBPena1.png', '1695658171_2r6GDtp4Uu.png', '1695658171_a1LN3xneI4.'),
+(54, 11, 'Sentra', 2023, 'Sedan', 'Petrol', 'Automatic', '2,000', 4, 3000, '1695659060_VFB8OMyUPo.png', '1695659060_DfSyzp84Tm.png', '1695659060_RyTDUCKb3i.png', '1695659060_inb4WxuET7.'),
+(56, 13, 'Civic', 2023, 'Sedan', 'Petrol', 'Manual', '2,500', 4, 4000, '1695659285_ClpMGruO7U.png', '1695659285_Pxb6DVHmAY.png', '1695659285_IlxUXsgG2Z.png', '1695659285_gG8uifJ6zx.'),
+(57, 14, 'MU-X', 2022, 'SUV', 'Diesel', 'Automatic', '4000', 8, 4500, '1695659383_bzaA7k5US2.png', '1695659383_02xWJbSHcE.png', '1695659383_jcN50xs1IC.png', '1695659383_a6XwNjGWqp.'),
+(58, 15, 'Elantra', 2023, 'Sedan', 'Petrol', 'Automatic', '5000', 4, 4700, '1695659667_nCd7HEAwrP.png', '1695659667_nqRKbvOuFp.png', '1695659667_rlEL5TpYsw.png', '1695659667_WQVpE17dX4.'),
+(59, 16, 'Trailblazer', 2023, 'SUV', 'Petrol', 'Automatic', '1500', 8, 6000, '1695659792_LzWwZuGRSy.png', '1695659792_9DRT1oqHny.png', '1695659792_9bYPv4dWGo.png', '1695659792_wHNKJA5VcG.'),
+(60, 17, 'CX-5', 2023, 'SUV', 'Petrol', 'Automatic', '3500', 6, 4300, '1695659867_rGte1fMYlB.png', '1695659867_A8tMos3Ydc.png', '1695659867_N5yGV4RslH.png', '1695659867_5FlLxOQK93.'),
+(61, 18, 'Montero', 2023, 'SUV', 'Petrol', 'Automatic', '3200', 8, 5500, '1695660070_Vo8MwSLjPp.png', '1695660070_Y6swirUa7m.png', '1695660070_aRc75gZpxH.png', '1695660070_iUaH70cRS5.');
 
 --
 -- Indexes for dumped tables
@@ -179,10 +228,22 @@ ALTER TABLE `brand`
   ADD PRIMARY KEY (`BrandID`);
 
 --
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`MessageID`);
+
+--
 -- Indexes for table `reservation`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`ReservationID`);
+
+--
+-- Indexes for table `subscription`
+--
+ALTER TABLE `subscription`
+  ADD PRIMARY KEY (`subsID`);
 
 --
 -- Indexes for table `user`
@@ -213,16 +274,28 @@ ALTER TABLE `brand`
   MODIFY `BrandID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `subscription`
+--
+ALTER TABLE `subscription`
+  MODIFY `subsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `vehicle`

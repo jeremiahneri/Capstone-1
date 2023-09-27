@@ -23,9 +23,6 @@ if (isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,33 +50,36 @@ if (isset($_SESSION['username'])) {
     <!-- Css -->
     <link rel="stylesheet" href="css/style.css">
 
-    
+
     <style>
-    @media screen and (max-width: 500px) {
-        .card-subTitle {
-            display: none;
+        @media screen and (max-width: 500px) {
+            .card-subTitle {
+                display: none;
+            }
         }
-    }
-    @media screen and (max-width: 500px) {
-        .owl-dots {
-            display: none;
+
+        @media screen and (max-width: 500px) {
+            .owl-dots {
+                display: none;
+            }
         }
-    }
-</style>
+    </style>
 
     <title>Quickrentz</title>
 </head>
 
 <body>
+
     <!--START OF NAVBAR -->
     <nav class="navbar navbarMain navbar-expand-lg navbar-light p-4">
         <div class="container">
             <a class="navbar-brand text-light" href="main.php">QuickRentz</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar1 navbar-collapse" id="navbarNav">
+            <div class="collapse navbar1 navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
                         <a class="nav-link ml-5 nav1 text-light" href="main.php">Home</a>
@@ -128,12 +128,6 @@ if (isset($_SESSION['username'])) {
                             </li>
                         </ul>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link text-light" href="sign-up.php"><i class="fa-solid fa-bag-shopping"></i> Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#"><i class="fa-solid fa-cart-shopping"></i></a> -->
-                    </li>
                 </ul>
             </div>
         </div>
@@ -175,46 +169,6 @@ if (isset($_SESSION['username'])) {
         </div>
     </div>
 
-    <!-- <div class="container-fluid carousel1">
-        <div id="carouselExample" class="carousel slide" carousel-fade data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"
-                    aria-label="Slide 2"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="5000">
-                    <img src="img/car1.jpg" class="d-block w-100" alt="...">
-                    <div class="overlay">
-                        <h2>Drive Dreams, Explore Roads, Car Rental Bliss.</h2>
-                    </div>
-                </div>
-                <div class="carousel-item pic2" data-bs-interval="4000">
-                    <img src="img/car2.jpg" class="d-block w-100" alt="...">
-                    <div class="overlay">
-                        <h3>
-                            Family Adventures: Where Memories and Smiles Happen.</h3>
-                    </div>
-                </div>
-                <div class="carousel-item pic2" data-bs-interval="3000">
-                    <img src="img/car3.jpg" class="d-block w-100" alt="...">
-                    <div class="overlay">
-                        <h2>Drive Dreams, Explore Roads, Car Rental Bliss.</h2>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon " aria-hidden="true"></span>
-            </button>
-        </div>
-    </div> -->
 
     <!--END SECTION 1 (CAROUSEL) -->
 
@@ -319,297 +273,43 @@ if (isset($_SESSION['username'])) {
 
     <!-- END SECTION 3 -->
 
-    <!-- START SECTION 4 -->
-
-    <!-- <div class="container mainContainer">
-        <div class="title_main2">
-            <h2>GET STARTED WITH 4 SIMPLE STEPS</h2>
-        </div>
-        <div class="row">
-            <div class="step1 col-md-3">
-                <div class="card cardSect4" style="height: 100%;">
-                    <span class="span1">
-                        <i class="fa-regular fa-circle-user iconSect4" id="icon1"></i>
-                    </span>
-                    <h3 class="step1__title">Create a profile</h3>
-                    <p class="step1__text">Register on our platform to access a personalized car rental experience.</p>
-                </div>
-
-            </div>
-            <div class="step1 col-md-3">
-                <div class="card cardSect4" style="height: 100%;">
-                    <span class="span3">
-                        <i class="fa-solid fa-car-side iconSect4" id="icon1"></i>
-                    </span>
-                    <h3 class="step1__title">Tell us what car you want</h3>
-                    <p class="step1__text">Specify your preferred car model, rental period, and pick-up location.</p>
-                </div>
-
-            </div>
-            <div class="step1 col-md-3">
-                <div class="card cardSect4" style="height: 100%;">
-                    <span class="span3">
-                        <i class="fa-solid fa-user-plus iconSect4" id="icon1"></i>
-                    </span>
-                    <h3 class="step1__title">Match with seller</h3>
-                    <p class="step1__text">Our algorithm will match you with the best available car rental options.</p>
-                </div>
-
-            </div>
-            <div class="step1 col-md-3">
-                <div class="card cardSect4" style="height: 100%;">
-                    <span class="span4">
-                        <i class="fa-regular fa-file iconSect4" id="icon1"></i>
-                    </span>
-                    <h3 class="step1__title">Make a deal</h3>
-                    <p class="step1__text">Finalize the rental agreement with the car owner and enjoy your hassle-free
-                        ride.</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <!-- End of Section 4 -->
-
     <!-- START SECTION 5 (OWL CAROUSEL) -->
-    <div class="container-fluid" style="height:55vh;" id="blog">
-        <h2 class="text-center text-light"
-            style="margin-top: 50px;margin-bottom: 50px;font-family: 'Poppins', sans-serif;font-size:3rem;">Our Blog</h2>
-        <div class="owl-carousel owl-theme" style="width:100%; height:35vh;">
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=pDfp0d_GtRM" style="text-decoration: none;">
-                    <div class="card-header" height="50%">
-                        <img src="img/new cars.jpg" alt="Image 1" style="height: 100%; width: 100%;">
-                    </div>
-                    <p style="text-align: center; margin-top: 15px; color: white;">"Elevate Your Drive with Our All-New
-                        Cars!"</p>
-                    <div class="blogMessage" style="display: flex; flex-direction: row; margin-top: 40px;">
-                        <p style="color: white; font-size: 15px;"><i class="fa-regular fa-clock"></i> Jan 21, 2023</p>
-                        <p style="text-align: right; margin-left: auto; color: white; font-size: 15px;"><i
-                                class="fa-regular fa-comment-dots"></i> 15</p>
-                    </div>
-                </a>
-            </div>
+    <?php include "includes/blogs.php"; ?>
+    
+    <!-- END SECTION 5 (OWL CAROUSEL) -->
 
+    <?php include "includes/footer.php"; ?>
 
-            <!-- #2 -->
-            <div class="item">
-                <iframe width="100%" height="100%"
-                    src="https://www.youtube.com/embed/ieEtGRhjvok?si=D-OLLhg2O4gAq8fs&amp;start=11"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                <p style="text-align:center; margin-top:15px; color:white;">"Unleash Adventure in the All-New Fortuner:
-                    Where Power Meets Elegance!"</p>
-                <div class="blogMessage" style="display: flex; flex-direction: row; margin-top:60px;">
-                    <p style=" color:white; font-size:15px"><i class="fa-regular fa-clock"></i> Oct 27, 2020</p>
-                    <p style="text-align: right; margin-left: auto; color:white; font-size:15px;"><i
-                            class="fa-regular fa-comment-dots"></i> 12</p>
-                </div>
-            </div>
-
-            <!-- #3 -->
-            <div class="item">
-                <a href="https://www.youtube.com/watch?app=desktop&v=8D4C7y1YaY8" style="text-decoration: none;">
-                    <div class="card-header">
-                        <img src="img/adv1.jpg" alt="Image 1" style="height: 100%; width: 100%;">
-                    </div>
-                    <p style="text-align: center; margin-top: 5px; color: white;">
-                        "Adventures on Wheels: Your Journey, Your Story."</p>
-                    <div class="blogMessage" style="display: flex; flex-direction: row; margin-top: 24px;">
-                        <p style="color: white; font-size: 15px;"><i class="fa-regular fa-clock"></i> Nov 13, 2022</p>
-                        <p style="text-align: right; margin-left: auto; color: white; font-size: 15px;"><i
-                                class="fa-regular fa-comment-dots"></i> 50</p>
-                    </div>
-                </a>
-            </div>
-            <!-- #4 -->
-            <div class="item">
-                <a href="https://www.news24.com/life/motoring/news/guides_and_lists/heres-everything-you-should-know-about-renting-a-vehicle-20190828"
-                    style="text-decoration: none;">
-                    <div class="card-header">
-                        <img src="img/faqs.jpg" alt="Image 1" style="height: 100%; width: 100%;">
-                    </div>
-                    <p style="text-align: center; margin-top: 5px; color: white;">
-                        "Curious About Cars? Discover FAQs Today!"</p>
-                    <div class="blogMessage" style="display: flex; flex-direction: row; margin-top: 47.5px;">
-                        <p style="color: white; font-size: 15px;"><i class="fa-regular fa-clock"></i> Sept 26, 2022</p>
-                        <p style="text-align: right; margin-left: auto; color: white; font-size: 15px;"><i
-                                class="fa-regular fa-comment-dots"></i> 20</p>
-                    </div>
-                </a>
-            </div>
-            <!-- #5 -->
-            <div class="item"><iframe width="100%" height="100%"
-                    src="https://www.youtube.com/embed/2UGyL-M3Nkc?si=HaXOgcasHot4kGKr&amp;start=22"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                <p style="text-align:center; margin-top:15px; color:white;">"Cityscape Freedom: Navigate with Rental
-                    Cars, Embrace the Urban Odyssey."</p>
-                <div class="blogMessage" style="display: flex; flex-direction: row; margin-top:60px;">
-                    <p style=" color:white; font-size:15px"><i class="fa-regular fa-clock"></i> Aug 27, 2018</p>
-                    <p style="text-align: right; margin-left: auto; color:white; font-size:15px;"><i
-                            class="fa-regular fa-comment-dots"></i> 1.3k</p>
-                </div>
-            </div>
-            <!-- #6 -->
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=EDZl7AgWQo8" style="text-decoration: none;">
-                    <div class="card-header">
-                        <img src="img/electric.jpg" alt="Image 1" style="height: 100%; width: 100%;">
-                    </div>
-                    <p style="text-align: center; margin-top: 5px; color: white;">
-                        "Electrify Your Passion for Speed with Electric Sports Cars!"</p>
-                    <div class="blogMessage" style="display: flex; flex-direction: row; margin-top: 24px;">
-                        <p style="color: white; font-size: 15px;"><i class="fa-regular fa-clock"></i> March 27, 2020</p>
-                        <p style="text-align: right; margin-left: auto; color: white; font-size: 15px;"><i
-                                class="fa-regular fa-comment-dots"></i> 22</p>
-                    </div>
-                </a>
-            </div>
-            <!-- #7 -->
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=L7GzPsTnqnw" style="text-decoration: none;">
-                    <div class="card-header">
-                        <img src="img/fast.jpg" alt="Image 1" style="height: 100%; width: 100%;">
-                    </div>
-                    <p style="text-align: center; margin-top: 5px; color: white;">
-                        "SUVs That Set the Pace: Meet the World's Fastest Ten!"</p>
-                    <div class="blogMessage" style="display: flex; flex-direction: row; margin-top: 24px;">
-                        <p style="color: white; font-size: 15px;"><i class="fa-regular fa-clock"></i> Sept 22, 2023</p>
-                        <p style="text-align: right; margin-left: auto; color: white; font-size: 15px;"><i
-                                class="fa-regular fa-comment-dots"></i> 5</p>
-                    </div>
-                </a>
-            </div>
-            <!-- #8 -->
-            <div class="item">
-                <a href="https://www.youtube.com/watch?app=desktop&v=irnPEm9aHR0" style="text-decoration: none;">
-                    <div class="card-header">
-                        <img src="img/muscle.jpg" alt="Image 1" style="height: 100%; width: 100%;">
-                    </div>
-                    <p style="text-align: center; margin-top: 5px; color: white;">
-                        "Revive the Roar of Classic Muscle Cars at Our Event!"</p>
-                    <div class="blogMessage" style="display: flex; flex-direction: row; margin-top: 24px;">
-                        <p style="color: white; font-size: 15px;"><i class="fa-regular fa-clock"></i> Nov 19, 2017</p>
-                        <p style="text-align: right; margin-left: auto; color: white; font-size: 15px;"><i
-                                class="fa-regular fa-comment-dots"></i> 5</p>
-                    </div>
-                </a>
-            </div>
-            <!-- #9 -->
-            <div class="item"><iframe width="100%" height="100%"
-                    src="https://www.youtube.com/embed/Y3jcQCdeJAs?si=KPNWRwBpF-JTMaps&amp;start=7"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                <p style="text-align:center; margin-top:15px; color:white;">"The Road to Reliability Begins with
-                    Consistent Car Care."</p>
-                <div class="blogMessage" style="display: flex; flex-direction: row; margin-top:60px;">
-                    <p style=" color:white; font-size:15px"><i class="fa-regular fa-clock"></i> Sept 09, 2018</p>
-                    <p style="text-align: right; margin-left: auto; color:white; font-size:15px;"><i
-                            class="fa-regular fa-comment-dots"></i> 1.9k</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- END SECTION 5 (OWL CAROUSEL) -->
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $(".owl-carousel").owlCarousel({
-                    loop: true,
-                    margin: 20,
-                    responsiveClass: true,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            nav: true,
-                        },
-                        600: {
-                            items: 3,
-                            nav: false,
-                        },
-                        1000: {
-                            items: 5,
-                            nav: true,
-                            loop: false,
-                        },
-                    },
-                });
-            });
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
         </script>
 
-        <footer class="text-white" style="background-color: #06010C;">
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col-md-3" id="div1">
-                        <h1></i> QUICKRENTZ</h1>
-                        <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim, laudantium.</p> -->
-                        <!-- <button style="background-color: #806393; color: white; border-radius: 10px;">Submit Ad</button> -->
-                    </div>
-                    <div class="col-md-3" id="div2">
-                        <h3 style="margin-bottom: 20px;">More to Explore</h3>
-                        <p>Contact Us</p>
-                        <p>My Account</p>
-                        <p>How it works</p>
-                        <p>My Booking</p>
-
-                    </div>
-                    <div class="col-md-3" id="div3" style="display: flex; flex-direction: column; align-items: center;">
-                        <h3 style="margin-bottom: 20px;">Contacts</h3>
-                        <span class="contact-item" style="display: flex; align-items: center;">
-                            <i class="fa-solid fa-location-dot" style="color: #806393; margin-right: 25px;"></i>
-                            <span>12 Main Street Metro Manila</span>
-                        </span>
-                        <span class="contact-item" style="display: flex; align-items: center;">
-                            <i class="fa-solid fa-clock" style="color: #806393; margin-right: 22px;"></i>
-                            <span>Mon-Sat 8:00am to 11:00pm</span>
-                        </span>
-                        <span class="contact-item" style="display: flex; align-items: center;">
-                            <i class="fa-solid fa-envelope" style="color: #806393; margin-right: 15px;"></i>
-                            <span>quickrentz.main@gmail.com</span>
-                        </span>
-                        <span class="contact-item" style="display: flex; align-items: center;">
-                            <i class="fa-solid fa-phone" style="color: #806393; margin-right: 10px;"></i>
-                            <span>+63 9693568001 / 939-54-72</span>
-                        </span>
-                    </div>
-
-                    <div class="col-md-3" id="div4">
-                        <h3 style="margin-bottom: 20px;">Newsletter</h3>
-                        <!-- <p>Subscribe for the new articles</p> -->
-                        <input type="text" placeholder="Email Address"
-                            style="border-radius: 10px; text-align: center;width:90%">
-                        <button type="submit"
-                            style="border-radius: 10px; text-align: center; margin-top: 10px;width:90%; color:white; background-color:#806393 ;">Subscribe
-                            Now</button>
-                    </div>
-
-                    <div class="col-md-12" id="div5">
-                        <hr>
-                        <div class="social-icon" style="background-color: #06010C;">
-                            <i class="fa-brands fa-facebook"></i>
-                        </div>
-                        <div class="social-icon" style="background-color: #06010C;">
-                            <i class="fa-brands fa-twitter"></i>
-                        </div>
-                        <div class="social-icon" style="background-color: #06010C;">
-                            <i class="fa-brands fa-instagram"></i>
-                        </div>
-                        <p style="margin-top: 20px;">&copy; 2023 QuickRentz. All Rights Reserved.</p>
-                    </div>
-
-
-                </div>
-            </div>
-        </footer>
-
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 20,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true,
+                    },
+                    600: {
+                        items: 3,
+                        nav: false,
+                    },
+                    1000: {
+                        items: 5,
+                        nav: true,
+                        loop: false,
+                    },
+                },
+            });
+        });
+    </script>
 </body>
 
 </html>

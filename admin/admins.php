@@ -2,7 +2,7 @@
 include "includes/database.php";
 session_start();
 
-if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
+if (isset($_SESSION['AdminUsername']) && isset($_SESSION['profilePhoto'])) {
 
     $username = $_SESSION['AdminUsername'];
     $profilePic = $_SESSION['profilePhoto'];
@@ -30,81 +30,79 @@ if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
 
 <body>
     <div class="main-container d-flex h-100">
-    <div class="sidebar" id="side_nav">
+        <div class="sidebar bg-dark" id="side_nav">
             <div class="header-box px-3 pt-3 pd-4 d-flex justify-content-between">
-                <h2 class="text-white px-2">QuickRentz</h2>
+                <h2 class="text-white px-2">
+                    QuickRentz
+                </h2>
                 <button class="btn d-md-none d-block close-btn px-1 py-0"><i class="fa-solid fa-bars-staggered"
-                        style="color: #ffffff;"></i></button>
+                        style="color: #ffffff;"></i>
+                </button>
             </div>
             <ul class="list-unstyled px-2 pt-3">
-                <li class="p-3 active"><a href="main.php" class="text-decoration-none fs-4">Dashboard</a></li>
-                <li class="p-3"><a href="#" class="text-decoration-none fs-4">Manage Booking</a></li>
-                <li class="p-3"><a href="users.php" class="text-decoration-none fs-4">Customer Credential</a></li>
-                <li class="p-3"><a href="vehicles.php" class="text-decoration-none fs-4">Manage Vehicle</a></li>
-                <li class="p-3"> <a class="text-decoration-none fs-4" data-bs-toggle="collapse" href="#collapseAdd" role="button" aria-expanded="false" aria-controls="collapseAdd">Add <i class="fa-solid fa-caret-down"></i>
+                <li class="p-3"><a href="main.php" class="text-decoration-none fs-4"><i class="fa-solid fa-gauge"></i>
+                        Dashboard</a></li>
+                <li class="p-3"><a href="bookings.php" class="text-decoration-none fs-4"><i
+                            class="fa-regular fa-pen-to-square"></i> Manage Booking</a></li>
+                <li class="p-3"><a href="manageUsers.php" class="text-decoration-none fs-4"><i
+                            class="fa-solid fa-users-gear"></i> Manage Users</a></li>
+                <li class="p-3"><a href="users.php" class="text-decoration-none fs-4"><i class="fa-solid fa-users"></i>
+                        Users Credential</a></li>
+                <li class="p-3"><a href="vehicles.php" class="text-decoration-none fs-4"><i class="fa-solid fa-car"></i>
+                        Manage Vehicle</a></li>
+                <li class="p-3"> <a class="text-decoration-none fs-4" data-bs-toggle="collapse" href="#collapseAdd"
+                        role="button" aria-expanded="false" aria-controls="collapseAdd"><i class="fa-solid fa-plus"></i>
+                        Add <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <ul class="collapse list-unstyled" id="collapseAdd">
-                        <li><a class="text-decoration-none fs-5 p-3" href="addVehicles.php">Car</a></li>
-                        <li><a class="text-decoration-none fs-5 p-3" href="addAdmins.php">Admin</a></li>
+                        <a class="text-decoration-none fs-5 " href="addVehicles.php">
+                            <li class="pb-2 px-5">Car</li>
+                        </a>
+                        <a class="text-decoration-none fs-5 " href="addBrand.php">
+                            <li class="pb-2 px-5">Brand</li>
+                        </a>
+                        <a class="text-decoration-none fs-5" href="addAdmins.php">
+                            <li class="pb-2 px-5">Admin</li>
+                        </a>
                     </ul>
                 </li>
             </ul>
             <ul class="list-unstyled signout px-4">
                 <li>
                     <form method="POST" action="">
-                        <a class="text-decoration-none fs-4" href="log-out.php" type="button">Log-out</a>
+                        <a class="text-decoration-none fs-4" href="log-out.php" type="button">Log-out <i
+                                class="fa-solid fa-arrow-right-from-bracket"></i></a>
                     </form>
                 </li>
             </ul>
         </div>
         <div class="content">
-            <nav class="navbar navbar-expand-lg bg-dark">
-                <div class="container-fluid">
-                    <div class="d-flex justify-content-between">
-                        <a class="navbar-brand text-white" href="#">QuickRentz</a>
-                        <button class="btn d-md-none d-block open-btn px-1 py-0"><i class="fa-solid fa-bars-staggered"
-                                style="color: #000000;"></i></button>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                    <div class="profile collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <h5 class="text-white my-auto p-4">
-                                    <img src='img/adminprofilephoto/<?php echo $profilePic ?>' alt='' style='border:2px solid #000;border-radius: 50px;' height='50'>
-                                    <?php 
-                                    echo $username;
-                                    ?>
-                                </h5>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <h1 class="col-md-12 px-3">Official Admins</h1>
-            <hr>
+            <?php include "includes/navbar.php"; ?>
+            <div class="container-fluid bg-white">
+                <h1 class="col-md-12 px-3">Official Admins</h1>
+                <hr>
+            </div>
             <div class="container">
-                <table id="pagination" class="table table-striped table-bordered" style="width:100%;">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Contact No.</th>
-                            <th scope="col">Full Address</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Photo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
+                <div class="container-fluid"
+                    style="border: 2px solid #000; border-radius: 10px;background-color: rgba(8, 103, 136, 0.7);">
+                    <table id="pagination" class="table table-striped table-bordered" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Contact No.</th>
+                                <th scope="col">Full Address</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Photo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
                             $sqlUserList = "SELECT * FROM `admin`";
                             $initiateUserList = mysqli_query($conn, $sqlUserList);
-                            while($results = mysqli_fetch_assoc($initiateUserList)){
+                            while ($results = mysqli_fetch_assoc($initiateUserList)) {
                                 echo "
                                 <tr>
                                     <th scope='row'>$results[adminID]</th>
@@ -117,20 +115,22 @@ if (isset($_SESSION['AdminUsername'])&&isset($_SESSION['profilePhoto'])) {
                                     <td><img src='img/adminprofilephoto/$results[Photo]' alt='' style='border:2px solid #000;border-radius: 50px;' height='100'></td>
                                 </tr>";
                             }
-                        ?>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Contact No.</th>
-                            <th scope="col">Full Address</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                    </tfoot>
-                </table>
+                            ?>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Contact No.</th>
+                                <th scope="col">Full Address</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Photo</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- CDN FOR PAGINATION -->
